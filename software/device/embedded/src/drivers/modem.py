@@ -906,6 +906,26 @@ class Modem:
         err = self.send_command_check("+UMQTTNV=2")
 
         return err
+        
+
+    def set_http_connection(self, server: str):
+        """Set http connections
+
+        Arguments:
+            server (str): server that is passed in, either mattermost or MMW
+        """
+
+        self.http_connect(server)
+        # command = '{}"{}"'.format("+UMQTT=0,", client_id)
+        # self.send_command_check(command)
+
+        # command = '{}"{}"'.format("+UMQTT=2,", server)
+        # self.send_command_check(command)
+
+        # # Store current MQTT client profile parameters to NVM
+        # err = self.send_command_check("+UMQTTNV=2")
+
+        return err
 
     def mqtt_connect(self):
         """Connect to MQTT broker
