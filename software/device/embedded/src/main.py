@@ -557,7 +557,6 @@ def transmit(device_data: dict, device_config: dict, modem, json_result: str):
         returnValue = True
         log.info("Start transmitting data...")
 
-
         modem.get_signal_power()
         modem.acquire_network()  # Proceed even if an IP address has not been acquired
         # Update the Cellular network RSSI

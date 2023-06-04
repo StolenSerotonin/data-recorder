@@ -908,7 +908,6 @@ class Modem:
         err = self.send_command_check("+UMQTTNV=2")
 
         return err
-        
 
     def set_http_connection(self, server: str):
         """Set http connections
