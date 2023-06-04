@@ -99,6 +99,8 @@ MATTERMOST_SERVER = "https://mattermost.ecs.vuw.ac.nz"
 
 MATTERMOST_CHANNEL_PATH = "/engr301-2023/channels/group-3-data-recorder"
 
+MMW_SERVER = "hdata.envirodiy.org"
+
 
 class ModemTimeout(Exception):
     """Raised when modem commands time out"""
@@ -904,6 +906,25 @@ class Modem:
 
         # Store current MQTT client profile parameters to NVM
         err = self.send_command_check("+UMQTTNV=2")
+
+        return err
+
+    def set_http_connection(self, server: str):
+        """Set http connections
+
+        Arguments:
+            server (str): server that is passed in, either mattermost or MMW
+        """
+
+        self.http_connect(server)
+        # command = '{}"{}"'.format("+UMQTT=0,", client_id)
+        # self.send_command_check(command)
+
+        # command = '{}"{}"'.format("+UMQTT=2,", server)
+        # self.send_command_check(command)
+
+        # # Store current MQTT client profile parameters to NVM
+        # err = self.send_command_check("+UMQTTNV=2")
 
         return err
 
